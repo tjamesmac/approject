@@ -26,16 +26,29 @@ export class Workout extends Component<IProps, IState> {
             workout: ""
         }
     }
-    handleWorkout(workout: string) {
+    handleWorkout(workout: any) {
         this.setState({
-            workout: workout
+            workout: workout.target.value
         })
     }
     render() {
+        let working;
+        let workout: string = this.state.workout;
+        if (workout === 'push') {
+            working = <h2>Push</h2>
+        }
+        else if (workout === 'pull') {
+            working = <h2>Pull</h2>
+        }
+        else if (workout === 'legs') {
+            working = <h2>Legs</h2>
+        }
+        console.log(this.state.workout);
         return (
             <div>
                 <h2>Hello, choose your workout.</h2>
-                <Select />
+                <Select action={(e: string) => this.handleWorkout(e)} />
+                {working}
             </div>
         );
     }
