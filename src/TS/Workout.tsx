@@ -16,7 +16,7 @@ interface IProps {
 
 }
 interface IState {
-
+    workout: string
 }
 
 export class Workout extends Component<IProps, IState> {
@@ -25,9 +25,11 @@ export class Workout extends Component<IProps, IState> {
         this.state = {
             workout: ""
         }
-
-
-
+    }
+    handleWorkout(workout: string) {
+        this.setState({
+            workout: workout
+        })
     }
     render() {
         return (
