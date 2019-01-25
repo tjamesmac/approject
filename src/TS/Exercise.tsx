@@ -5,7 +5,13 @@ interface IProps {
 interface IState {
 }
 
-export const Exercise = () => {
+export const Exercise = (props: {reps: number, sets: number, name: string})  => {
+    let reps = props.reps;
+    let sets = props.sets;
+    let name = props.name;
+    return (
+        <div></div>
+    )
 }
  
 
