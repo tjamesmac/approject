@@ -42,6 +42,15 @@ export class Calculator extends Component<IProps, IState> {
             input: ""
         });
     }
+    handleSubtract(id: any) {
+        let storing = this.state.input;
+        let storeNum = parseInt(storing);
+        let subtracting = this.state.total;
+        this.setState({
+            total: storeNum - subtracting,
+            input: ""
+        });
+    }
 
   render() {
     console.log(this.state.input);
@@ -65,6 +74,7 @@ export class Calculator extends Component<IProps, IState> {
             <Button name={0} handleClick={(e: any) => this.handler(e)}/>
             <Operation name={"Delete"} action={(e: any) => this.handleDelete(e)}/>
             <Operation name={"Addition"} action={(e: any) => this.handleAdd(e)}/>
+            <Operation name={"Subtraction"} action={(e: any) => this.handleSubtract(e)}/>
         </div>
     );
   }
