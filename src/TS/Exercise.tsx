@@ -9,8 +9,9 @@ export const Exercise = (props: {reps: number, sets: number, name: string})  => 
     let reps = props.reps;
     let sets = props.sets;
     let name = props.name;
+    let together = `${sets}x${reps} - ${name}`
     return (
-        <div></div>
+        <div>{together}</div>
     )
 }
  
