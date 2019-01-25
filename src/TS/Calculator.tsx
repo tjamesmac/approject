@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button } from './Button';
 
-const Delete = (props: {action: any}) => {
+const Operation = (props: {action: any, name: string}) => {
     return (
-        <button onClick={props.action}>Delete</button>
+        <button onClick={props.action}>{props.name}</button>
     )
 }
 
@@ -11,12 +11,14 @@ interface IProps {
 }
 interface IState {
     input: string
+    total: number
 }
 export class Calculator extends Component<IProps, IState> {
     constructor(props: any) {
         super(props)
         this.state = {
-            input: "",
+            input: '',
+            total: 0,
         }
     }
     handler(id: any) {
@@ -31,13 +33,26 @@ export class Calculator extends Component<IProps, IState> {
             input: del 
         });
     }
+    handleAdd(id: any) {
+        let storing = this.state.input;
+        let storeNum = parseInt(storing);
+        let adding = this.state.total;
+        this.setState({
+            total: adding + storeNum,
+            input: ""
+        });
+    }
 
   render() {
     console.log(this.state.input);
     let numbers: string = this.state.input;
+    let addition: number = this.state.total;
     return (
         <div>
+            <div>This is input</div>
             <div>{numbers}</div>
+            <div>This is total</div>
+            <div>{addition}</div>
             <Button name={1} handleClick={(e: any) => this.handler(e)}/>
             <Button name={2} handleClick={(e: any) => this.handler(e)}/>
             <Button name={3} handleClick={(e: any) => this.handler(e)}/>
@@ -47,7 +62,8 @@ export class Calculator extends Component<IProps, IState> {
             <Button name={7} handleClick={(e: any) => this.handler(e)}/>
             <Button name={8} handleClick={(e: any) => this.handler(e)}/>
             <Button name={9} handleClick={(e: any) => this.handler(e)}/>
-            <Delete action={(e: any) => this.handleDelete(e)}/>
+            <Operation name={"Delete"} action={(e: any) => this.handleDelete(e)}/>
+            <Operation name={"Addition"} action={(e: any) => this.handleAdd(e)}/>
         </div>
     );
   }
