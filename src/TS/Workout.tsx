@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
 
+
+const Select = (props: {action?: any}) => {
+    return (
+        <select onChange={props.action}>
+            <option value="">Select a workout</option>
+            <option value="push">Push</option>
+            <option value="pull">Pull</option>
+            <option value="legs">Legs</option>
+        </select>
+    )
+}
+
 interface IProps {
 
 }
@@ -10,19 +22,18 @@ interface IState {
 export class Workout extends Component<IProps, IState> {
     constructor(props: any) {
         super(props)
+        this.state = {
+            workout: ""
+        }
+
+
 
     }
     render() {
         return (
             <div>
                 <h2>Hello, choose your workout.</h2>
-                <select>
-
-                    <option value="">Select a workout</option>
-                    <option value="push">Push</option>
-                    <option value="pull">Pull</option>
-                    <option value="legs">Legs</option>
-                </select>
+                <Select />
             </div>
         );
     }
