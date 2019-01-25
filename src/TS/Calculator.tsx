@@ -69,3 +69,5 @@ export class Calculator extends Component<IProps, IState> {
     );
   }
 }
+
+export default Calculator;
