@@ -62,6 +62,7 @@ export class Calculator extends Component<IProps, IState> {
             <Button name={7} handleClick={(e: any) => this.handler(e)}/>
             <Button name={8} handleClick={(e: any) => this.handler(e)}/>
             <Button name={9} handleClick={(e: any) => this.handler(e)}/>
+            <Button name={0} handleClick={(e: any) => this.handler(e)}/>
             <Operation name={"Delete"} action={(e: any) => this.handleDelete(e)}/>
             <Operation name={"Addition"} action={(e: any) => this.handleAdd(e)}/>
         </div>
