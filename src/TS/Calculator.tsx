@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from './Button';
 
-
-
-
 const Delete = (props: {action: any}) => {
     return (
         <button onClick={props.action}>Delete</button>
@@ -51,7 +48,6 @@ export class Calculator extends Component<IProps, IState> {
             <Button name={8} handleClick={(e: any) => this.handler(e)}/>
             <Button name={9} handleClick={(e: any) => this.handler(e)}/>
             <Delete action={(e: any) => this.handleDelete(e)}/>
-
         </div>
     );
   }
